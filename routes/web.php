@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\PersonneController;
-use App\Models\Personne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*

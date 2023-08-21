@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Personne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PersonneController extends Controller
 {
     function index()
     {
-        return view("persons", ["personnes" => Personne::all()]);
+        // $personnes = Personne::all();
+        $personnes = DB::table("personne")->get();
+
+        return view("persons", ["personnes" => $personnes]);
     }
 
     function profil($id)
     {
-        $personne = Personne::findOrFail($id);
+        // $personne = Personne::findOrFail($id);
+        $personne = DB::table("personne")->find($id);
+
         return view("person", ["personne" => $personne]);
     }
 
